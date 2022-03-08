@@ -30,7 +30,17 @@ public class addEmployee extends HttpServlet{
       resp.setContentType("text/html");  
 	  PrintWriter out=resp.getWriter();  
 	  out.print("<h2> Employee  Added Successfully </h2>");
-	  out.print("<a href='/RestEmployeeApp'> Main Menu</a>");
+	  out.print("<a href='/RestEmployeeApp'>\n"
+		         + "        <button class=GetAll>\n"
+		         + "            Main Menu\n"
+		         + "        </button>\n"
+		         + "   </a>");
+	  out.print("<br>");
+	  out.print("<a href='/RestEmployeeApp/rest/employee/getall'>\n"
+			      + "        <button class=\"GetAll\">\n"
+			      + "           Show All Employees\n"
+			      + "        </button>\n"
+			      + "  </a>");
 	  
       
       
