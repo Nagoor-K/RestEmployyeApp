@@ -35,7 +35,7 @@ public class EmployeeService{
 	public Employee addEmployee(Employee emp) {
 		em=emf.createEntityManager();
 		em.getTransaction().begin();
-		em.persist(emp);
+		em.merge(emp);
 		em.getTransaction().commit();
 		em.close();
 		return emp;

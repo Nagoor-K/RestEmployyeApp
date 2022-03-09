@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,10 +23,11 @@ public class getall extends HttpServlet{
    * 
    */
   private static final long serialVersionUID = 2859009569424998462L;
-  @Override
+  
   protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws IOException, ServletException {
      EmployeeService es=new EmployeeService();
      List<Employee> list=es.getAllEmployees();
+     ServletContext servletcontext = getServletContext();
      PrintWriter out=resp.getWriter();
      resp.setContentType("text/html"); 
      out.println("<html><head><style>\n"
@@ -49,10 +51,10 @@ public class getall extends HttpServlet{
     	 int age=emp.getAge();
     	 long salary=emp.getSalary();
     	 //request.setAttribute("emp", emp);
-    	 request.setAttribute("dummy", emp);
-    	 RequestDispatcher rd = request.getRequestDispatcher("addemployee.jsp");
-//    	 rd.forward(request, resp);
+    	 servletcontext.setAttribute("emp", emp);
     	 out.println("<tr><td>" + id + "</td><td>" + name + "</td><td>" + age + "</td><td>" + salary + "</td><td>" + "<a href='/RestEmployeeApp/addemployee.jsp'> Edit Employee</a>" + "</td></tr>");  
+    	 
+    	 //rd.forward(request, resp);
      }
      out.println("</table>");  
      out.println("</html></body>");  
@@ -62,7 +64,7 @@ public class getall extends HttpServlet{
          + "        </button>\n"
          + "   </a>");
      out.print("<br>");
-	  out.print("<a href='/RestEmployeeApp/addemployee.jsp'>\n"
+	 out.print("<a href='/RestEmployeeApp/addemployee.jsp'>\n"
 	      + "        <button class=\"GetAll\">\n"
 	      + "            Add Employee\n"
 	      + "        </button>\n"

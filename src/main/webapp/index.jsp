@@ -22,11 +22,5 @@
    </a>
 <br>
 
-<a href="addemployee.jsp">
-        <button class="GetAll">
-            Add Employee
-        </button>
-  </a>
-
 </body>
 </html>

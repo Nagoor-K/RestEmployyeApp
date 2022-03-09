@@ -34,7 +34,7 @@ public class EmployeeResources {
 	}
 	
 	@PUT
-	@Path("/update")
+	@Path("/updateEmployee")
 	@Consumes(MediaType.APPLICATION_XML)
 	@Produces(MediaType.APPLICATION_XML)
 	public Employee updateEmp(Employee emp) {
