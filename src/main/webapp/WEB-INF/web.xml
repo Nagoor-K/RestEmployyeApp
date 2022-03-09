@@ -47,7 +47,7 @@
 </servlet>
 
 <servlet-mapping>
-   <servlet-name>getall</servlet-name>
+   <servlet-name>updateemp</servlet-name>
    <url-pattern>/rest/employee/updateEmployee</url-pattern>
 </servlet-mapping>
 

@@ -23,6 +23,8 @@ public class updateEmployee extends HttpServlet{
 	  ServletContext servletcontext = getServletContext();
 	  Employee emp=(Employee)servletcontext.getAttribute("emp");
 	  servletcontext.setAttribute("emp", emp);
+	  System.out.print(emp.toString());
+	  resp.sendRedirect(request.getContextPath() + "/addemployee.jsp");
 	  
   }
 	

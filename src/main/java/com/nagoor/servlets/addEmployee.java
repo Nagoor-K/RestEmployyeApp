@@ -26,21 +26,22 @@ public class addEmployee extends HttpServlet{
       Employee emp=new Employee(id,name,age,salary);
       EmployeeService es=new EmployeeService();
       Employee em=es.addEmployee(emp);
-      long eid=em.getId();
-      resp.setContentType("text/html");  
-	  PrintWriter out=resp.getWriter();  
-	  out.print("<h2> Employee  Added Successfully </h2>");
-	  out.print("<a href='/RestEmployeeApp'>\n"
-		         + "        <button class=GetAll>\n"
-		         + "            Main Menu\n"
-		         + "        </button>\n"
-		         + "   </a>");
-	  out.print("<br>");
-	  out.print("<a href='/RestEmployeeApp/rest/employee/getall'>\n"
-			      + "        <button class=\"GetAll\">\n"
-			      + "           Show All Employees\n"
-			      + "        </button>\n"
-			      + "  </a>");
+      resp.sendRedirect("/RestEmployeeApp/rest/employee/getall");
+//      long eid=em.getId();
+//      resp.setContentType("text/html");  
+//	  PrintWriter out=resp.getWriter();  
+//	  out.print("<h2> Employee  Added Successfully </h2>");
+//	  out.print("<a href='/RestEmployeeApp'>\n"
+//		         + "        <button class=GetAll>\n"
+//		         + "            Main Menu\n"
+//		         + "        </button>\n"
+//		         + "   </a>");
+//	  out.print("<br>");
+//	  out.print("<a href='/RestEmployeeApp/rest/employee/getall'>\n"
+//			      + "        <button class=\"GetAll\">\n"
+//			      + "           Show All Employees\n"
+//			      + "        </button>\n"
+//			      + "  </a>");
 	  
       
       
