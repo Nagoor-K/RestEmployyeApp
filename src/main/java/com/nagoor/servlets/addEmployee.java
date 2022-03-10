@@ -7,7 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import com.nagoor.model.Employee;
+import com.nagoor.model.module.PersistenceModule;
 import com.nagoor.service.EmployeeService;
 
 public class addEmployee extends HttpServlet{
@@ -22,28 +25,11 @@ public class addEmployee extends HttpServlet{
       String name=req.getParameter("name");
       int age=Integer.parseInt(req.getParameter("age"));
       long salary=Long.parseLong(req.getParameter("salary"));
-      
       Employee emp=new Employee(id,name,age,salary);
-      EmployeeService es=new EmployeeService();
+      Injector injector=Guice.createInjector(new PersistenceModule());
+  	  EmployeeService es=injector.getInstance(EmployeeService.class);
       Employee em=es.addEmployee(emp);
-      resp.sendRedirect("/RestEmployeeApp/rest/employee/getall");
-//      long eid=em.getId();
-//      resp.setContentType("text/html");  
-//	  PrintWriter out=resp.getWriter();  
-//	  out.print("<h2> Employee  Added Successfully </h2>");
-//	  out.print("<a href='/RestEmployeeApp'>\n"
-//		         + "        <button class=GetAll>\n"
-//		         + "            Main Menu\n"
-//		         + "        </button>\n"
-//		         + "   </a>");
-//	  out.print("<br>");
-//	  out.print("<a href='/RestEmployeeApp/rest/employee/getall'>\n"
-//			      + "        <button class=\"GetAll\">\n"
-//			      + "           Show All Employees\n"
-//			      + "        </button>\n"
-//			      + "  </a>");
-	  
-      
+      resp.sendRedirect("/RestEmployeeApp");
       
   }
   

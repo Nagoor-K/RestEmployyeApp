@@ -10,13 +10,17 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import com.nagoor.model.Employee;
+import com.nagoor.model.module.PersistenceModule;
 import com.nagoor.service.EmployeeService;
 
 @Path("/employee")
 public class EmployeeResources {
 	
-	EmployeeService employeeService=new EmployeeService();
+	Injector injector=Guice.createInjector(new PersistenceModule());
+	EmployeeService employeeService=injector.getInstance(EmployeeService.class);
 	
 	@GET
 	@Path("/getall")

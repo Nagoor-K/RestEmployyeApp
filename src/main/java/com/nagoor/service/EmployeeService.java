@@ -11,7 +11,7 @@ import com.google.inject.Injector;
 import com.nagoor.model.Employee;
 import com.nagoor.model.module.PersistenceModule;
 
-public class EmployeeService{
+public class EmployeeService implements EmployeeServe{
 	@Inject
 	private static EntityManagerFactory emf;
 	private static EntityManager em;
@@ -25,22 +25,19 @@ public class EmployeeService{
 		em.getTransaction().begin();
 		Query query=em.createQuery("SELECT emp FROM Employee emp");
 		List<Employee> l=(List<Employee>)query.getResultList();
-//		long count=(long) query.getSingleResult();
-//		for(long i=0;i<count;i++) {
-//			l.add(em.find(Employee.class, i));
-//		}
 		return l;
 	}
-	
 	public Employee addEmployee(Employee emp) {
 		em=emf.createEntityManager();
 		em.getTransaction().begin();
+		if(em.find(Employee.class, emp.getId())==null) {
+			em.persist(emp);
+		}
 		em.merge(emp);
 		em.getTransaction().commit();
 		em.close();
 		return emp;
 	}
-	
 	public Employee updateEmployee(Employee emp) {
 		em=emf.createEntityManager();
 		em.getTransaction().begin();
