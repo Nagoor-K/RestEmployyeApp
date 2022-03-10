@@ -15,6 +15,7 @@
 <body>
 
 <h1>REST EASY DEMO APPLICATION</h1>
+<%response.sendRedirect("/RestEmployeeApp/rest/employee/getall"); %>>
 <a href="rest/employee/getall">
         <button class="GetAll">
             Show All Employees

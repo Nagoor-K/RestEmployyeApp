@@ -64,7 +64,7 @@
 
 <a href="/RestEmployeeApp/rest/employee/getall">
         <button class="GetAll">
-            Show All Employees
+            GO Back
         </button>
    </a>
 </body>
