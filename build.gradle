@@ -32,7 +32,14 @@ dependencies {
 	// https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
 	compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
 	
-    providedCompile "javax.servlet:javax.servlet-api:3.1.0"      
+    providedCompile "javax.servlet:javax.servlet-api:3.1.0" 
+         
+	// https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-guice
+//implementation group: 'org.jboss.resteasy', name: 'resteasy-guice', version: '3.15.3.Final'
+// https://mvnrepository.com/artifact/com.google.inject.extensions/guice-persist
+//implementation group: 'com.google.inject.extensions', name: 'guice-persist', version: '3.0'
+
+	
 	
 }
 

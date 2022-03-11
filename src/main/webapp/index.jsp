@@ -4,6 +4,8 @@
 <%@ page import="com.google.inject.Guice" %>
 <%@ page import="com.google.inject.Injector" %>
 <%@ page import="com.nagoor.model.module.PersistenceModule" %>
+<%@ page import="com.nagoor.servlets.GetAll" %>
+<%@ page import="com.google.inject.Inject" %>
 <html>
 <head><style>
         .GetAll {
@@ -31,9 +33,10 @@
    </tr>
    <%
    try{
-	   Injector injector=Guice.createInjector(new PersistenceModule());
-	   EmployeeService es=injector.getInstance(EmployeeService.class);
-	   List<Employee> list=es.getAllEmployees();
+	   
+	   GetAll get=new GetAll();
+	   
+	   List<Employee> list=get.all();
 	   for(Employee emp:list){%>
 	   	<tr>      
             <td><%=emp.getId()%></td><td><%=emp.getName()%></td><td><%=emp.getAge()%></td><td><%=emp.getSalary()%></td><td><a href='/RestEmployeeApp/addemployee.jsp'> Edit Employee</a></td>

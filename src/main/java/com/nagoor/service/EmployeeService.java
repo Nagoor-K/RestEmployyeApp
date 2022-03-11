@@ -20,6 +20,7 @@ public class EmployeeService implements EmployeeServe{
 		Injector injector = Guice.createInjector(new PersistenceModule());
 		emf = injector.getInstance(EntityManagerFactory.class);
 	}
+	
 	public List<Employee> getAllEmployees(){
 		em=emf.createEntityManager();
 		em.getTransaction().begin();
