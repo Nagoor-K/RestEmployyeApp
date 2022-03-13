@@ -34,10 +34,9 @@
    <%
    try{
 	   
-	   GetAll get=new GetAll();
+
 	   
-	   List<Employee> list=get.all();
-	   for(Employee emp:list){%>
+	   for(Employee emp: (List<Employee>) request.getAttribute("emps")){%>
 	   	<tr>      
             <td><%=emp.getId()%></td><td><%=emp.getName()%></td><td><%=emp.getAge()%></td><td><%=emp.getSalary()%></td><td><a href='/RestEmployeeApp/addemployee.jsp'> Edit Employee</a></td>
         </tr>

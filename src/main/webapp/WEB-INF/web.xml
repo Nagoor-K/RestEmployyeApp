@@ -51,4 +51,14 @@
    <url-pattern>/rest/employee/updateEmployee</url-pattern>
 </servlet-mapping>
 
+<servlet>
+      <servlet-name>GetAll</servlet-name>
+      <servlet-class>com.nagoor.servlets.GetAll</servlet-class>
+  </servlet>
+  <servlet-mapping>
+
+      <servlet-name>GetAll</servlet-name>
+      <url-pattern></url-pattern>
+  </servlet-mapping>
+
 </web-app>
